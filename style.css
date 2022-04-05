@@ -76,3 +76,93 @@ h4{
     height : 200px;
 }
 
+#intro1{
+    text-align: left; 
+    padding-left: 300px;
+    padding-top: 100px;
+}
+
+h3{
+    padding-top: 10px;
+    font-family: dream;
+    font-weight:bold;
+    padding-bottom: 5px;
+}
+
+#skill{
+   background-color:  RGB(240,238,233); width: 700px;height: 200px; position:relative; top: -600px; left:900px;;
+}
+
+#Interest{
+   background-color:  RGB(240,238,233); width: 700px;height: 220px; position:relative; top: -590px; left:900px;
+   font-family: dream;
+}
+
+#Interest img{
+    margin-right: 20px;margin-left: 20px;
+}
+
+#Mbti{
+    background-color:  RGB(240,238,233); width: 700px;height: 200px; position:relative; top: -580px; left:900px;
+}
+
+.progress-bar {
+    width: 500px;
+    height: 25x;
+    background-color: #dedede;
+    font-weight: 600;
+    font-size: .8rem;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 5px;
+    display: inline-block;
+}
+
+.mbti_e {
+    width: 55%; 
+    height: 25px;
+    padding: 0;
+    text-align: center;
+    background-color: #5b9fff;
+    color: white;
+    font-size: larger;
+    font-family: dream;
+    
+    
+}
+
+.mbti_s {
+    width: 80%; 
+    height: 25px;
+    padding: 0;
+    text-align: center;
+    background-color: #5b9fff;
+    color: white;
+    font-size: larger;
+    font-family: dream;
+}
+
+.mbti_f {
+    width: 60%; 
+    height: 25px;
+    padding: 0;
+    text-align: center;
+    background-color: #5b9fff;
+    color: white;
+    font-size: larger;
+    font-family: dream;
+}
+.mbti_p {
+    width: 80%; 
+    height: 25px;
+    padding: 0;
+    text-align: center;
+    background-color: #5b9fff;
+    color: white;
+    font-size: larger;
+    font-family: dream;
+}
+
+figure, figcaption{
+    display: inline;
+}
