@@ -1,23 +1,22 @@
 @font-face {
     font-family: 'dream';
-    src: url('src/font/SCDream5.otf') format('truetype');
+    src: url('../font/SCDream5.otf') format('truetype');
 }
 
 html,body{
     width: 100%;
     height: 100%;
+    
 }
 
-.Home, .Introduction, .Projects, .Contact{
+.Home, .Introduction, .Projects, .Skill{
     background-color:RGB(233,226,209);
     text-align: center;
     height: 100%;
 
+
 }
 
-.Introduction{
-    height: 100%;
-}
 #myimage{
     margin-top: 200px;
 }

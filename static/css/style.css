@@ -1,0 +1,167 @@
+@font-face {
+    font-family: 'dream';
+    src: url('../font/SCDream5.otf') format('truetype');
+}
+
+html,body{
+    width: 100%;
+    height: 100%;
+    background-color:RGB(233,226,209);
+}
+
+.Home, .Introduction, .Projects, .Contact .Skill{
+    text-align: center;
+    height: 100%;
+    width: 100%;
+
+}
+
+
+#myimage{
+    margin-top: 200px;
+}
+
+.bg-light{
+    background-color: RGB(233,226,209) !important;
+}
+
+nav{
+    position: fixed;
+    font-family: 'Anton', sans-serif;
+    letter-spacing: 1px;
+}
+
+h1{
+    font-family: 'Black Han Sans', sans-serif;
+}
+
+#title_introduction, #title_projects, #title_contact{
+    padding-top: 100px;
+}
+
+#project1{
+    display: inline-block;
+    width : 30%;
+    padding-top : 30px
+}
+
+#project2{
+    display: inline-block;
+    width : 30%;
+    padding-top : 30px
+}
+#project3{
+    display: inline-block;
+    width : 30%;
+    padding-top : 30px
+}
+
+
+
+h4{
+    font-family: 'dream', sans-serif;
+    font-size: 1.5em;
+}
+
+#project3_img{
+    width: 400px;
+    height: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#project3 img{
+    width: 400px;
+    height : 200px;
+}
+
+#intro1{
+    text-align: left; 
+    padding-left: 300px;
+    padding-top: 100px;
+}
+
+h3{
+    padding-top: 10px;
+    font-family: dream;
+    font-weight:bold;
+    padding-bottom: 5px;
+}
+
+#skill{
+   background-color:  RGB(240,238,233); width: 700px;height: 200px; position:relative; top: -600px; left:900px;;
+}
+
+#Interest{
+   background-color:  RGB(240,238,233); width: 700px;height: 220px; position:relative; top: -590px; left:900px;
+   font-family: dream;
+}
+
+#Interest img{
+    margin-right: 20px;margin-left: 20px;
+}
+
+#Mbti{
+    background-color:  RGB(240,238,233); width: 700px;height: 200px; position:relative; top: -580px; left:900px;
+}
+
+.progress-bar {
+    width: 500px;
+    height: 25x;
+    background-color: #dedede;
+    font-weight: 600;
+    font-size: .8rem;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 5px;
+    display: inline-block;
+}
+
+.mbti_e {
+    width: 55%; 
+    height: 25px;
+    padding: 0;
+    text-align: center;
+    background-color: #5b9fff;
+    color: white;
+    font-size: larger;
+    font-family: dream;
+    
+    
+}
+
+.mbti_s {
+    width: 80%; 
+    height: 25px;
+    padding: 0;
+    text-align: center;
+    background-color: #5b9fff;
+    color: white;
+    font-size: larger;
+    font-family: dream;
+}
+
+.mbti_f {
+    width: 60%; 
+    height: 25px;
+    padding: 0;
+    text-align: center;
+    background-color: #5b9fff;
+    color: white;
+    font-size: larger;
+    font-family: dream;
+}
+.mbti_p {
+    width: 80%; 
+    height: 25px;
+    padding: 0;
+    text-align: center;
+    background-color: #5b9fff;
+    color: white;
+    font-size: larger;
+    font-family: dream;
+}
+
+figure, figcaption{
+    display: inline;
+}
