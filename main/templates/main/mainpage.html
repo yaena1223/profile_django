@@ -2,6 +2,7 @@
 {% load static %}
 
 {% block content %} 
+{% include 'shared/_navbar.html' %}
   <div class = "Home" id = "Home">
     <img id = "myimage" src = "{% static 'images/me.png'%}"/>
     <h1>안녕하세요!<br>
@@ -30,7 +31,7 @@
     </div>
   </div>
     
-  <div class = "Skill" id = "Skill" >
+  
     <div id = "skill" >
       <h3>Skill</h3>
       <img src = "{% static 'images/html.png'%}" style="width: 100px; height: 100px;"/>
@@ -109,5 +110,20 @@
     </div>
 
   </div>
+
+  <div class = "Posts" id = "Posts">
+    <h1 id = "title_posts"> Posts</h1>
+    <h4><a href = "{%url 'new' %}"> 글쓰기</a></h4>
+      <div>
+      {% for post in posts %} 
+      <div>
+          <h3>{{post.title}}</h3>
+          {{post.writer}}<br>
+          {{post.summary}}<br>
+          <a href = "{% url 'detail' post.id %}">...자세히</a>
+      </div>
+      {%endfor%}
+    </div>
     
+  </div>
   {% endblock %}

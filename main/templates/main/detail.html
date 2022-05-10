@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %} 
+{% include 'shared/_navbar2.html' %}
+<div style="padding-top:10px ;">
+<h3>{{post.title}}</h3>
+작성자 : {{post.writer}}<br>
+날짜 : {{post.pub_date}}<br>
+{{post.writer}}<br>
+{{post.summary}}<br>
+</div>
+{% endblock %}

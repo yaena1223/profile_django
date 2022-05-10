@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %} 
+{% include 'shared/_navbar2.html' %}
+<form action = "{% url 'create' %}" method = "post" style="padding-top: 10px;">
+    {% csrf_token %}
+    <p> 제목 : <input type = "text" name = "title"></p>
+    <p> 작성자 : <input type = "text" name = "writer"></p>
+    <p> 내용 : <textarea type = "text" name = "body" id = "" cols = "30" rows = "10"></textarea></textarea></p>
+    <button type = "submit">제출</button>
+</form>
+    {% endblock %}
