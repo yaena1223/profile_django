@@ -3,11 +3,16 @@
 
 {% block content %} 
 {% include 'shared/_navbar2.html' %}
-<div style="padding-top:10px ;">
-<h3>{{post.title}}</h3>
-작성자 : {{post.writer}}<br>
-날짜 : {{post.pub_date}}<br>
-{{post.writer}}<br>
-{{post.summary}}<br>
+<div style="padding-top:50px ;">
+    <h3>{{post.title}}</h3>
+    작성자 : {{post.writer}}<br>
+    날짜 : {{post.pub_date}}<br>
+    {% if post.image %} 
+        <p><img src = "{{ post.image.url }}"  style="width: 250px" alt = "사진"></p>
+    {% endif %}
+    {{post.writer}}<br>
+    {{post.summary}}<br>
+    <a href = "{% url 'main:edit' post.id%}">수정하기</a>
+    <a href = "{% url 'main:delete' post.id%}">삭제하기</a>
 </div>
 {% endblock %}
