@@ -112,9 +112,12 @@
   </div>
 
   <div class = "Posts" id = "Posts">
+    
     <h1 id = "title_posts"> Posts</h1>
+    {% if user.is_authenticated %} 
     <h4><a href = "{%url 'main:new' %}"> 글쓰기</a></h4>
-      <div>
+    
+    <div>
       {% for post in posts %} 
       <div>
           <h3>{{post.title}}</h3>
@@ -124,6 +127,9 @@
       </div>
       {%endfor%}
     </div>
-    
+    {% else %}
+    <a href = "{% url 'account_login' %}" class = "btn btn-warning">로그인</a>
+    <a href = "{% url 'account_signup'%}" class = "btn btn-warning">회원가입</a>
+    {% endif %}
   </div>
   {% endblock %}
