@@ -176,8 +176,8 @@ figure, figcaption{
     font-family: dream;
 }
 
-#new{
-    padding-top:50px ;
+#new, #edit{
+    padding-top:80px ;
     padding-left: 10px;
     font-family: dream;
 }
