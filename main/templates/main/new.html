@@ -2,14 +2,16 @@
 {% load static %}
 
 {% block content %} 
+
 {% include 'shared/_navbar2.html' %}
-<br><br><br>
-<form action = "{% url 'main:create' %}" method = "post" enctype = "multipart/form-data" style="padding-top: 10px;">
-    {% csrf_token %}
-    <p> 제목 : <input type = "text" name = "title"></p>
-    <p> 작성자 : <input type = "text" name = "writer"></p>
-    <p> 사진 : <input type = "file" name = "image"></p>
-    <p> 내용 : <textarea type = "text" name = "body" id = "" cols = "30" rows = "10"></textarea></textarea></p>
-    <button type = "submit">제출</button>
-</form>
-    {% endblock %}
+<div class= "container" id = "new">
+    <h1> 글쓰기</h1>
+    <form action = "{% url 'main:create' %}" method = "post" enctype = "multipart/form-data"  >
+        {% csrf_token %}
+        <p> 제목 : <input type = "text" name = "title"></p>
+        <p> 사진 : <input type = "file" name = "image"></p>
+        <p> 내용 : <textarea type = "text" name = "body" id = "" cols = "30" rows = "10"></textarea></textarea></p>
+        <button type = "submit">제출</button>
+    </form>
+</div>
+{% endblock %}

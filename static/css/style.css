@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @font-face {
     font-family: 'dream';
     src: url('../font/SCDream5.otf') format('truetype');
@@ -7,15 +8,18 @@ html,body{
     width: 100%;
     height: 100%;
     background-color:RGB(233,226,209);
+
 }
 
-.Home, .Introduction, .Projects, .Contact .Skill{
+.Home, .Introduction, .Projects{
     text-align: center;
     height: 100%;
-    width: 100%;
 
 }
-
+.Posts{
+    text-align: center;
+    height: 100%; 
+}
 
 #myimage{
     margin-top: 200px;
@@ -35,7 +39,7 @@ h1{
     font-family: 'Black Han Sans', sans-serif;
 }
 
-#title_introduction, #title_projects, #title_contact{
+#title_introduction, #title_projects, #title_contact, #title_posts{
     padding-top: 100px;
 }
 
@@ -83,7 +87,7 @@ h4{
 
 h3{
     padding-top: 10px;
-    font-family: dream;
+    font-family: 'dream';
     font-weight:bold;
     padding-bottom: 5px;
 }
@@ -94,7 +98,7 @@ h3{
 
 #Interest{
    background-color:  RGB(240,238,233); width: 700px;height: 220px; position:relative; top: -590px; left:900px;
-   font-family: dream;
+   font-family: 'dream';
 }
 
 #Interest img{
@@ -125,7 +129,7 @@ h3{
     background-color: #5b9fff;
     color: white;
     font-size: larger;
-    font-family: dream;
+    font-family: 'dream';
     
     
 }
@@ -138,7 +142,7 @@ h3{
     background-color: #5b9fff;
     color: white;
     font-size: larger;
-    font-family: dream;
+    font-family: 'dream';
 }
 
 .mbti_f {
@@ -149,7 +153,7 @@ h3{
     background-color: #5b9fff;
     color: white;
     font-size: larger;
-    font-family: dream;
+    font-family: 'dream';
 }
 .mbti_p {
     width: 80%; 
@@ -159,9 +163,21 @@ h3{
     background-color: #5b9fff;
     color: white;
     font-size: larger;
-    font-family: dream;
+    font-family: 'dream';
 }
 
 figure, figcaption{
     display: inline;
+}
+
+#detail{
+    padding-top:50px ;
+    padding-left: 10px;
+    font-family: dream;
+}
+
+#new{
+    padding-top:50px ;
+    padding-left: 10px;
+    font-family: dream;
 }
