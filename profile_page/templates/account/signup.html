@@ -1,0 +1,22 @@
+{% load socialaccount %}
+{% providers_media_js %}
+
+{% load static %}
+<link rel = "stylesheet" href = "{% static 'css/login.css' %}?after">
+<div class = "signup">
+  <div class = "signup_text">회원가입</div>
+  <div class = "signup_body">
+   
+    <div class = "signup_form">
+      <form id="signup_form" method="post" action="{% url 'account_signup' %}" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+
+        {% if redirect_field_value %}
+        <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+        {% endif %}
+        <button type="submit"> 가입하기 </button>
+      </form>
+    </div>
+  </div>
+</div>

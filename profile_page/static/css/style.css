@@ -181,3 +181,17 @@ figure, figcaption{
     padding-left: 10px;
     font-family: dream;
 }
+
+.btn-warning{
+    background-color: RGB(234,102,118);
+    color:white;
+    font-family: dream;
+}
+
+.btn:hover{
+    background-color: rgb(250, 137, 137);
+}
+
+.dropdown-item{
+    font-family:dream;
+}
