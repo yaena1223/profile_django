@@ -220,7 +220,7 @@ figure, figcaption{
     text-align: center;
 }
 
-#title,#context{
+#title,#content{
     width: 800px;
     border-radius: 15px;
     margin-bottom: 30px;
@@ -235,7 +235,7 @@ figure, figcaption{
     height: 40px;
 }
 
-#context{
+#content{
     height: 500px;
 }
 
