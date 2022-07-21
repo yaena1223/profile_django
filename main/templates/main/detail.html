@@ -8,13 +8,13 @@
     
     <div id = "detail_body" style="background-color: #f1ede3; border-radius: 15px; padding: 20px; margin-bottom: 30px;">
         {% if post.writer == user%}
-        <a href = "{% url 'main:post'%}" style="display: inline-block;"><i class="fa-solid fa-circle-arrow-left" style="color: RGB(234,102,118); font-size: 30px;"></i></a>
+        <a href = "{% url 'main:post'%}" style="display: inline-block;"><i class="fa-solid fa-circle-arrow-left" style="color: #efa781;; font-size: 30px;"></i></a>
             <div id = "edit_delete_post" style="text-align: right;float:right;">
                 <a href = "{% url 'main:edit' post.id%}"><button id = "post_edit_button">글 수정하기</button></a>
                 <a href = "{% url 'main:delete' post.id%}"><button id = "post_edit_button">글 삭제하기</button></a>
             </div>
         {% else %}
-        <a href = "{% url 'main:post'%}" style="display: inline-block;"><i class="fa-solid fa-circle-arrow-left" style="color: RGB(234,102,118); font-size: 30px;"></i></a>
+        <a href = "{% url 'main:post'%}" style="display: inline-block;"><i class="fa-solid fa-circle-arrow-left" style="color: #efa781;; font-size: 30px;"></i></a>
         {% endif %}
         
         <h3>제목 : {{post.title}}</h3>
@@ -35,7 +35,72 @@
             <p style="text-align: center;"><img src = "{{ post.image.url }}"  style="width: 250px" alt = "사진"></p>
         {% endif %}
 
-        <div id = "summary" style="text-align: center;">{{post.body}}</div><hr style="height: 5px; border: 0 none;color:black">
+        <div id = "summary" style="text-align: center;">{{post.body}}</div>
+        <div class = "like_dislike" style="text-align: right;">
+            <div class="like" name ="{{post.id}}" value="Like" style="display: inline-block;">
+                {% if user in post.like_user_set.all %} 
+                    <button style="background-color: #17BBEE; color:white;border:none;width: 100px;border-radius: 10px;">
+                        <i class="fa-solid fa-thumbs-up" id = "like-icon" style="font-size: 30px;display: inline-block;color: white;"></i>
+                        &nbspLike
+                        <p id="count-{{ post.id }}" style="margin-bottom: 0;">
+                            {% if post.like_count == 0 %}
+                                0개
+                            {% else %}
+                                {{ post.like_count }}개
+                            {% endif %}    
+                        </p>
+                        
+                    </button>
+
+                {% else %}
+                    <button style="background-color: #17BBEE; color:white;border:none;width: 100px;border-radius: 10px;">
+                        <i class="fa-regular fa-thumbs-up"id = "like-icon" style="font-size: 30px;display: inline-block;color: white; "></i>
+                        &nbspLike
+                        <p id="count-{{ post.id }}" style="margin-bottom: 0;">
+                            {% if post.like_count == 0 %}
+                                0개
+                            {% else %}
+                                {{ post.like_count }}개
+                            {% endif %}    
+                        </p>
+                    </button>
+                {% endif %}
+            </div>
+
+            <div class="dislike" name ="{{post.id}}" value="Dislike" style="display: inline-block;">
+                {% if user in post.dislike_user_set.all %} 
+                    <button style="background-color:#FF473F; color:white;border:none;width: 100px;border-radius: 10px;">
+                        <i class="fa-solid fa-thumbs-down" id = "dislike-icon" style="font-size: 30px;display: inline-block;color: white;"></i>
+                        &nbspDislike
+                        <p id="count2-{{ post.id }}" style="margin-bottom: 0;">
+                            {% if post.dislike_count == 0 %}
+                                0개
+                            {% else %}
+                                {{ post.dislike_count }}개
+                            {% endif %}    
+                        </p>
+                        
+                    </button>
+
+                {% else %}
+                    <button style="background-color:#FF473F; color:white;border:none;width: 100px;border-radius: 10px;">
+                        <i class="fa-regular fa-thumbs-down"id = "dislike-icon" style="font-size: 30px;display: inline-block;color: white; "></i>
+                        &nbspDislike
+                        <p id="count2-{{ post.id }}" style="margin-bottom: 0;">
+                            {% if post.dislike_count == 0 %}
+                                0개
+                            {% else %}
+                                {{ post.dislike_count }}개
+                            {% endif %}    
+                        </p>
+                    </button>
+                {% endif %}
+            </div>
+           
+        </div>
+        
+        <hr style="height: 5px; border: 0 none;color:black">
+        
         <h4 style="text-align: center;">댓글</h4>
         <div  style="text-align: center;">
             <form action="{%url 'main:create_comment' post.id%}" method="POST">
@@ -71,4 +136,71 @@
 
 </div>
   
+<!-- 5. ajax 적용하기-->
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script>
+    $(".like").click(function(){
+        var pk=$(this).attr('name')
+        $.ajax({
+            type:'POST',
+            url:"{% url 'main:like_toggle' post.pk %}",
+            data:{'pk':pk,'csrfmiddlewaretoken':'{{csrf_token}}'},
+            dataType:'json',
+            success:function(response){
+                if(response.like_count==null){
+                    alert('로그인이 필요합니다.');
+                     window.location.replace('/accounts/login/');
+                }
+                else{
+                    if(response.result=='like'){
+                        $('#like-icon').removeClass();
+                        $('#like-icon').addClass('fa-solid');
+                        $('#like-icon').addClass('fa-thumbs-up');
+                    }
+                    else{
+                        $('#like-icon').removeClass();
+                        $('#like-icon').addClass('fa-regular');
+                        $('#like-icon').addClass('fa-thumbs-up');
+                     }
+                    $('#count-{{post.id}}').html(response.like_count+'개');
+                 }
+            },
+             error:function(request, status, error){
+                alert("Error")
+            },
+         })
+    })
+
+    $(".dislike").click(function(){
+        var pk=$(this).attr('name')
+        $.ajax({
+            type:'POST',
+            url:"{% url 'main:dislike_toggle' post.pk %}",
+            data:{'pk':pk,'csrfmiddlewaretoken':'{{csrf_token}}'},
+            dataType:'json',
+            success:function(response){
+                if(response.dislike_count==null){
+                    alert('로그인이 필요합니다.');
+                     window.location.replace('/accounts/login/');
+                }
+                else{
+                    if(response.result=='dislike'){
+                        $('#dislike-icon').removeClass();
+                        $('#dislike-icon').addClass('fa-solid');
+                        $('#dislike-icon').addClass('fa-thumbs-down');
+                    }
+                    else{
+                        $('#dislike-icon').removeClass();
+                        $('#dislike-icon').addClass('fa-regular');
+                        $('#dislike-icon').addClass('fa-thumbs-down');
+                     }
+                    $('#count2-{{post.id}}').html(response.dislike_count+'개');
+                 }
+            },
+             error:function(request, status, error){
+                alert("Error")
+            },
+         })
+    })
+</script>
 {% endblock %}

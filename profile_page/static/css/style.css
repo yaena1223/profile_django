@@ -240,7 +240,7 @@ figure, figcaption{
 }
 
 #post_button{
-    background-color: RGB(234,102,118);
+    background-color: #efa781;
     color:white;
     font-family: dream;
     border: none;
@@ -252,7 +252,7 @@ figure, figcaption{
 }
 
 .btn-warning{
-    background-color: RGB(234,102,118);
+    background-color: #efa781;
     color:white;
     font-family: dream;
     border: none;
@@ -298,7 +298,7 @@ figure, figcaption{
 }
 
 #post_edit_button{
-    background-color: RGB(234,102,118); 
+    background-color: #efa781; 
     color:white; 
     font-family: dream; 
     border: none; 
@@ -308,11 +308,11 @@ figure, figcaption{
 }
 
 #comment_edit_button{
-    border-radius: 15px; background-color: RGB(234,102,118); color:white;border:none
+    border-radius: 15px; background-color: #efa781; color:white;border:none
 }
 
 #detail_submit{
-    background-color: RGB(234,102,118); color:white; font-family: dream; border: none; width: 100px;
+    background-color: #efa781; color:white; font-family: dream; border: none; width: 100px;
     height: 30px; border-radius: 15px; margin-left: 700px;
 }
 
