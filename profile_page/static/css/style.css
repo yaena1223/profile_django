@@ -14,7 +14,16 @@ html,body{
 .Home, .Introduction, .Projects{
     text-align: center;
     height: 100%;
+    width: 100%;
 
+}
+
+
+
+
+.info_body{
+    display:flex;
+    width: 100%;
 }
 .Posts{
     text-align: center;
@@ -33,6 +42,7 @@ nav{
     position: fixed;
     font-family: 'Anton', sans-serif;
     letter-spacing: 1px;
+    width: 100%;
 }
 
 h1{
@@ -43,21 +53,45 @@ h1{
     padding-top: 100px;
 }
 
+.Projects{
+    display: flex;
+    flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.project_body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
 #project1{
-    display: inline-block;
-    width : 30%;
-    padding-top : 30px
+    display: flex;
+    padding-top : 30px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 500px;
 }
 
 #project2{
-    display: inline-block;
-    width : 30%;
-    padding-top : 30px
+    display: flex;
+    flex-direction: row;
+    padding-top : 30px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 500px;
 }
 #project3{
-    display: inline-block;
-    width : 30%;
-    padding-top : 30px
+    display: flex;
+    flex-direction: column;
+    padding-top : 30px;
+    justify-content: center;
+    align-items: center;
+    width: 500px;
 }
 
 
@@ -92,21 +126,27 @@ h3{
     padding-bottom: 5px;
 }
 
-#skill{
-   background-color:  RGB(240,238,233); width: 700px;height: 200px; position:relative; top: -600px; left:900px;;
+.skill_list, .interest_list, .mbti_list{
+   background-color:  RGB(240,238,233);
+   width: 700px;
+   height: 200px;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   margin-bottom: 10px;
+   font-family: dream;
+
 }
 
-#Interest{
-   background-color:  RGB(240,238,233); width: 700px;height: 220px; position:relative; top: -590px; left:900px;
-   font-family: 'dream';
+.interest_list h6{
+    margin-right: 40px;
 }
-
-#Interest img{
-    margin-right: 20px;margin-left: 20px;
-}
-
-#Mbti{
-    background-color:  RGB(240,238,233); width: 700px;height: 200px; position:relative; top: -580px; left:900px;
+.interest_list img{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-right:40px;
+    width: 90px;
+    height: 90px;
 }
 
 .progress-bar {
@@ -118,7 +158,6 @@ h3{
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 5px;
-    display: inline-block;
 }
 
 .mbti_e {
@@ -146,7 +185,7 @@ h3{
 }
 
 .mbti_f {
-    width: 60%; 
+    width: 85%; 
     height: 25px;
     padding: 0;
     text-align: center;
@@ -156,7 +195,7 @@ h3{
     font-family: 'dream';
 }
 .mbti_p {
-    width: 80%; 
+    width: 65%; 
     height: 25px;
     padding: 0;
     text-align: center;
@@ -186,6 +225,7 @@ figure, figcaption{
     background-color: RGB(234,102,118);
     color:white;
     font-family: dream;
+    border: none;
 }
 
 .btn:hover{

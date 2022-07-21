@@ -14,6 +14,71 @@
 
   </div>
 
+
+<div class = "Introduction" id = "Introduction">
+  <h1 id = "title_projects">Introduction</h1>
+  <div class = "info_body">
+    <div class = "basic_info" style="width:50%;height:100%;align-items: center; justify-content: center;padding-left:100px;margin-right: 0;">
+      <img src = "{% static 'images/intro.jpg'%}" style="width: 600px; border-radius: 70%; margin:30px; margin-top:100px;"/>
+      <div id = "intro_txt" style="display: flex;flex-direction:column; text-align:left; align-items: center;">
+        <div id = "txt" style="justify-content: left;">
+          <h4>이름 : 이예나</h4>
+          <h4>학력 : 동국대학교 </h4>
+          <pre><h4>학과 : 경영정보학과(본전공)
+          융합소프트웨어학과(연계전공)</h4></pre>
+        </div>
+      </div>
+    </div>
+
+    <div class = "specific_info" style="width:50%;height:100%;display: flex; flex-direction: column;">
+      <div class = "skill_list" style="margin-top:100px;">
+        <h3 style="padding-top: 0;">Skill</h3>
+        <div id = "skill_img">
+          <img src = "{% static 'images/html.png'%}" style="width: 100px; height: 100px;"/>
+          <img src = "{% static 'images/css.png'%}" style="width: 100px;height: 100px;"/>
+          <img src = "{% static 'images/django.png'%}" style="width: 100px;height: 100px;"/>
+          <img src = "{% static 'images/python.png'%}" style="width: 100px;height: 100px;"/>
+          <img src = "{% static 'images/java.png'%}" style="width: 80px;height: 100px;"/> 
+        </div>
+      </div>
+      <div class = "interest_list" >
+        <h3 >Interest</h3>
+        <table style="margin-left: auto;margin-right: auto;">
+          <tr>
+            <td><img src = "{% static 'images/coding.png'%}"/></td>
+            <td><img src = "{% static 'images/drawing.png'%}"/></td>
+            <td><img src = "{% static 'images/photo.png'%}"/></td>
+            <td><img src = "{% static 'images/friend.png'%}"/></td>
+          </tr>
+          <tr>
+            <td><h6>coding</h6></td>
+            <td><h6>drawing</h6></td>
+            <td><h6>taking picture</h6></td>
+            <td><h6>playing</h6></td>
+            
+          </tr>
+        </table>
+      </div>
+
+      <div class = "mbti_list" >
+        <h3>Mbti</h3>
+        <div class="progress-bar">           
+          <div class="mbti_e"> E</div>
+        </div>
+        <div class="progress-bar">           
+          <div class="mbti_s"> S </div>
+        </div>
+        <div class="progress-bar">           
+          <div class="mbti_f">F </div>
+        </div>
+        <div class="progress-bar">           
+          <div class="mbti_p">P </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- 
   <div class = "Introduction" id = "Introduction">
     <h1 id = "title_introduction"> Introduction</h1>
     <div id = "intro1">
@@ -75,38 +140,31 @@
           <div class="mbti_p">P </div>
         </div>
     </div>
-  </div>  
+  </div>   -->
 
 
   <div class = "Projects" id = "Projects">
     <h1 id = "title_projects"> Projects</h1>
-    <div id = "project1">
-      <div id = "project1_img">
-        <img src = "{% static 'images/project1.jpg'%}" style="width: 400px; height: 600px;"/>
+    <div class = "project_body">
+      <div id = "project1">
+          <img src = "{% static 'images/project1.jpg'%}" style="width: 400px; height: 600px; margin-bottom: 30px;"/>
+          <h4> 동국대학교 중앙동아리 활동기록 서비스</h4>
       </div>
-      <br>
-      <h4> 동국대학교 중앙동아리 활동기록 서비스</h4>
-    
-    </div>
-    <div id = "project2">
-      <div id = "project2_img">
-       <img src = "{% static 'images/project2.jpg'%}" style="width: 400px; height: 600px;"/>
+
+      <div id = "project2">
+        <img src = "{% static 'images/project2.jpg'%}" style="width: 400px; height: 600px; margin-bottom: 30px;"/>
+        <h4>음정 맞춤 서비스, SLOV</h4>    
       </div>
-      <br>
-        <h4>음정 맞춤 서비스, SLOV</h4>
+
+      <div id = "project3">
+          <img src = "{% static 'images/project3_1.jpg'%}"/>
+          <img src = "{% static 'images/project3_2.jpg'%}"/>
+          <img src = "{% static 'images/project3_3.jpg'%}" style=" margin-bottom: 30px;"/>
+          <h4>Red Cedar Detection</h4>
+      </div>
     </div>
 
-    <div id = "project3">
-     
-      <div id = "project3_img">
-        <img src = "{% static 'images/project3_1.jpg'%}"/>
-        <img src = "{% static 'images/project3_2.jpg'%}"/>
-        <img src = "{% static 'images/project3_3.jpg'%}"/>
-      </div>
- 
-
-      <br>
-      <h4>Red Cedar Detection</h4>
+      
     </div>
 
   </div>

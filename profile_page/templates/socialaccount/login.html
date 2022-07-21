@@ -1,0 +1,27 @@
+
+{% load i18n %}
+
+
+{% load static %}
+<link rel = "stylesheet" href = "{% static 'css/login.css' %}?after">
+{% block content %}
+<style>
+
+</style>
+<div class = "social_login" style="text-align: center;">
+{% if process == "connect" %}
+
+  <h1>{% blocktrans with provider.name as provider %}Connect {{ provider }}{% endblocktrans %}</h1>
+
+  {% else %}
+  <h1>{% blocktrans with provider.name as provider %}  {{ provider }} 로그인{% endblocktrans %}</h1>
+
+
+  {% endif %}
+
+  <form method="post">
+    {% csrf_token %}
+    <button id = "google_button" type="submit" id = "social_login_continue">{% trans "Continue" %}</button>
+  </form>
+</div>
+{% endblock %}
