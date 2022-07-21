@@ -102,14 +102,6 @@ def like_toggle(request, post_id):
     }
     return HttpResponse(json.dumps(context), content_type = "application/json")
 
-# 4. my_like 함수 작성하기
-def my_like(request,user_id):
-    user = User.objects.get(id = user_id)
-    like_list = Like.objects.filter(user=user)
-    context = {
-        'like_list' : like_list,
-    }
-    return render(request,'items/my_like.html', context)
 
 
 @require_POST

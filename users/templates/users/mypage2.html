@@ -1,0 +1,39 @@
+{% extends 'base.html' %} 
+{% load static %} 
+{% block content %} 
+{% include 'shared/_navbar2.html' %}
+<br><br><br><br>
+<style>
+    .nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+        color: #fff;
+        background-color:RGB(234,102,118);
+    }
+</style>
+<h1 style="margin-left: 200px;">Mypage</h1>
+    <h4 style="margin-left: 200px;font-family: dream;">ID : {{user.username}}</h2>
+        <ul class="nav nav-pills" style="margin-left: 200px; font-family: dream;">
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'users:mypage' %}" style="color:black">작성한 글</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="{% url 'users:mypage2'%}">좋아요 한 글</a>
+            </li>
+
+        </ul>
+    <div  id = "post_container">
+            {% for like in like_list %}
+                <a href = "{% url 'main:detail' like.post.id %}" style="text-decoration: none;cursor:default">
+                    <div id = "post_box" style="cursor:pointer; text-align: center;">
+                        <h1>{{ like.post.title }}</h1>
+                        <hr style="width: 90%;margin-left: auto;margin-right: auto;">
+                        <p style="margin:0 ;font-size:larger;">미리보기</p>
+                        <h7>{{like.post.summary}}</h7>
+                        <hr style="width: 90%;margin-left: auto;margin-right: auto;">
+                    </div>
+                </a>
+
+        {% endfor %}
+    </div>
+   
+
+{% endblock %}
