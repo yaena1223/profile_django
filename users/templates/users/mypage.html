@@ -10,11 +10,14 @@
         <a href = "{% url 'main:detail' post.id %}" style="text-decoration: none;cursor:default">
             <div id = "post_box" style="cursor:pointer; text-align: center;">
                 <h1>{{post.title}}</h1>
-                {{post.summary}}<br>
+                <hr style="width: 90%;margin-left: auto;margin-right: auto;">
+                <p style="margin:0 ;font-size:larger;">미리보기</p>
+                <h7>{{post.summary}}</h7>
+                <hr style="width: 90%;margin-left: auto;margin-right: auto;">
             </div>
         </a>
         {% endfor %}
     </div>
-
+   
 
 {% endblock %}
