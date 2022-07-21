@@ -3,15 +3,18 @@
 {% block content %} 
 {% include 'shared/_navbar2.html' %}
 <br><br><br><br>
-<div class = "container">
-    <h1>{{user.username}}</h1>
-    <div>
+<h1 style="margin-left: 200px;">Mypage</h1>
+    <h4 style="margin-left: 200px;font-family: dream;">ID : {{user.username}}</h2>
+    <div  id = "post_container">
         {% for post in posts %} 
-
-        <a href = "{% url 'main:detail' post.id %}">{{post.title}}</a><hr>
-
+        <a href = "{% url 'main:detail' post.id %}" style="text-decoration: none;cursor:default">
+            <div id = "post_box" style="cursor:pointer; text-align: center;">
+                <h1>{{post.title}}</h1>
+                {{post.summary}}<br>
+            </div>
+        </a>
         {% endfor %}
     </div>
-</div>
+
 
 {% endblock %}

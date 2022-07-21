@@ -3,6 +3,12 @@
 
 {% block content %} 
 {% include 'shared/_navbar.html' %}
+<style>
+  
+  html,body{
+      height: 100%;
+  }
+</style>
   <div class = "Home" id = "Home">
     <img id = "myimage" src = "{% static 'images/me.png'%}"/>
     <h1>안녕하세요!<br>
@@ -171,27 +177,27 @@
 
   <div class = "Posts" id = "Posts">
     
-    <h1 id = "title_posts"> Posts</h1>
+    <h1 id = "title_posts"> Posts </h1>
     {% if user.is_authenticated %} 
-    <h4><a href = "{%url 'main:new' %}"> 글쓰기</a></h4>
-    
-    <div>
+    <a href = "{%url 'main:new' %}" style="text-decoration:none;"><i class="fa-solid fa-square-pen" style="font-size: 50px; color:black"></i></a>
+    <div id = "post_container">
       {% for post in posts %} 
-      <div>
-         <h1>{{post.title}}</h1>
-         {% if post.writer %}
-             {% if 'user' in post.writer.username %}
-                 <h3>작성자 : {{ post.writer.last_name }} {{ post.writer.first_name }}</h3>
-             {% else %}
-                 <h3>작성자 : {{ post.writer }}</h3>
-             {% endif %}
-         {% else %}
-             <h3>작성자 : 알 수 없음</h3>
-         {% endif %}
-        
-          {{post.summary}}<br>
-          <a href = "{% url 'main:detail' post.id %}">...자세히</a>
-      </div>
+      <a href = "{% url 'main:detail' post.id %}" style="text-decoration: none;cursor:default">
+        <div id = "post_box" style="cursor:pointer">
+          <h1>{{post.title}}</h1>
+          {% if post.writer %}
+              {% if 'user' in post.writer.username %}
+                  <h6>작성자 : {{ post.writer.last_name }} {{ post.writer.first_name }}</h6>
+              {% else %}
+                  <h6>작성자 : {{ post.writer }}</h6>
+              {% endif %}
+          {% else %}
+              <h6>작성자 : 알 수 없음</h6>
+          {% endif %}
+          
+            {{post.summary}}<br>
+        </div>
+      </a>
       {%endfor%}
     </div>
     {% else %}

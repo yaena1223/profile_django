@@ -8,10 +8,11 @@
     <h1> 글쓰기</h1>
     <form action = "{% url 'main:create' %}" method = "post" enctype = "multipart/form-data"  >
         {% csrf_token %}
-        <p> 제목 : <input type = "text" name = "title"></p>
-        <p> 사진 : <input type = "file" name = "image"></p>
-        <p> 내용 : <textarea type = "text" name = "body" id = "" cols = "30" rows = "10"></textarea></textarea></p>
-        <button type = "submit">제출</button>
+        <input type = "text" name = "title" id = "title"  placeholder=" 제목을 입력해주세요">
+        <input type = "file" name = "image"  id = "photo">
+        <textarea type = "text"  name = "body" id = "context" placeholder=" 내용을 입력해주세요" ></textarea>
+        <br>
+        <button type = "submit" id = "post_button">제출</button>
     </form>
 </div>
 {% endblock %}

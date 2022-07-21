@@ -189,3 +189,7 @@ html, body{
     align-items: center;
     margin-bottom: 10px;
 }
+
+#title{
+    width: 300px;
+}

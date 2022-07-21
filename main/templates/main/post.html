@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %} 
+{% include 'shared/_navbar2.html' %}
+<div class = "Posts" id = "Posts">
+    
+    <h1 id = "title_posts"> Posts </h1>
+    {% if user.is_authenticated %} 
+    <a href = "{%url 'main:new' %}" style="text-decoration:none;"><i class="fa-solid fa-square-pen" style="font-size: 50px; color:black"></i></a>
+
+    <div id = "post_container">
+    {% for post in posts %} 
+    <a href = "{% url 'main:detail' post.id %}" style="text-decoration: none;cursor:default">
+        <div id = "post_box" style="cursor:pointer">
+        <h1>{{post.title}}</h1>
+        {% if post.writer %}
+            {% if 'user' in post.writer.username %}
+                <h6>작성자 : {{ post.writer.last_name }} {{ post.writer.first_name }}</h6>
+            {% else %}
+                <h6>작성자 : {{ post.writer }}</h6>
+            {% endif %}
+        {% else %}
+            <h6>작성자 : 알 수 없음</h6>
+        {% endif %}
+        
+            {{post.summary}}<br>
+        </div>
+    </a>
+    {%endfor%}
+    </div>
+
+    {% else %}
+    <a href = "{% url 'account_login' %}" class = "btn btn-warning">로그인</a>
+    <a href = "{% url 'account_signup'%}" class = "btn btn-warning">회원가입</a>
+    {% endif %}
+</div>
+  {% endblock %}

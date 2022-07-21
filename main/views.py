@@ -6,6 +6,10 @@ def showmain(request):
     posts = Post.objects.all()
     return render(request,'main/mainpage.html', {'posts':posts})
 
+def post(request):
+    posts = Post.objects.all()
+    return render(request,'main/post.html',{'posts':posts})
+
 def detail(request, id):
     post = get_object_or_404(Post, pk = id)
     all_comments = post.comments.all().order_by('-created_at')

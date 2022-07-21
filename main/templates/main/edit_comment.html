@@ -4,7 +4,7 @@
 {% block content %} 
 
 
-<div class = "container">
+<div class = "container" style="margin-top: 100px;">
     <h1> 댓글 수정하기</h1>
     <form action="{% url 'main:update_comment' comment.id %}"  method = "post" >
         {% csrf_token %}

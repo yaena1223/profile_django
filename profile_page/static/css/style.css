@@ -5,8 +5,6 @@
 }
 
 html,body{
-    width: 100%;
-    height: 100%;
     background-color:RGB(233,226,209);
 
 }
@@ -17,7 +15,6 @@ html,body{
     width: 100%;
 
 }
-
 
 
 
@@ -213,12 +210,42 @@ figure, figcaption{
     padding-top:50px ;
     padding-left: 10px;
     font-family: dream;
+
 }
 
 #new, #edit{
     padding-top:80px ;
     padding-left: 10px;
     font-family: dream;
+    text-align: center;
+}
+
+#title,#context{
+    width: 800px;
+    border-radius: 15px;
+    margin-bottom: 30px;
+    border: black 2px solid;
+
+}
+#photo{
+    width: 800px;
+    margin-bottom: 30px;
+}
+
+#context{
+    height: 500px;
+}
+
+#post_button{
+    background-color: RGB(234,102,118);
+    color:white;
+    font-family: dream;
+    border: none;
+    width: 100px;
+    height: 30px;
+    border-radius: 15px;
+    margin-left: 700px;
+
 }
 
 .btn-warning{
@@ -234,4 +261,54 @@ figure, figcaption{
 
 .dropdown-item{
     font-family:dream;
+}
+
+
+#post_container{
+    margin-left: 300px;
+    margin-right: 300px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    place-items: center;
+    column-gap: 20px;
+}
+
+#post_box{
+    width: 300px;
+    height: 300px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    background-color: #efa781;
+    border-radius: 15px;
+    font-family: dream;
+    vertical-align:middle;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: white;
+
+}
+
+#post_box h1{
+    font-size: 40px;
+    font-weight:lighter;
+}
+
+#post_edit_button{
+    background-color: RGB(234,102,118); 
+    color:white; 
+    font-family: dream; 
+    border: none; 
+    width: 100px;
+    height: 30px; 
+    border-radius: 15px;
+}
+
+#comment_edit_button{
+    border-radius: 15px; background-color: RGB(234,102,118); color:white;border:none
+}
+
+#detail_submit{
+    background-color: RGB(234,102,118); color:white; font-family: dream; border: none; width: 100px;
+    height: 30px; border-radius: 15px; margin-left: 700px;
 }
