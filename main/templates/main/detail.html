@@ -8,10 +8,13 @@
     
     <div id = "detail_body" style="background-color: #f1ede3; border-radius: 15px; padding: 20px; margin-bottom: 30px;">
         {% if post.writer == user%}
-            <div id = "edit_delete_post" style="text-align: right;">
+        <a href = "{% url 'main:post'%}" style="display: inline-block;"><i class="fa-solid fa-circle-arrow-left" style="color: RGB(234,102,118); font-size: 30px;"></i></a>
+            <div id = "edit_delete_post" style="text-align: right;float:right;">
                 <a href = "{% url 'main:edit' post.id%}"><button id = "post_edit_button">글 수정하기</button></a>
                 <a href = "{% url 'main:delete' post.id%}"><button id = "post_edit_button">글 삭제하기</button></a>
             </div>
+        {% else %}
+        <a href = "{% url 'main:post'%}" style="display: inline-block;"><i class="fa-solid fa-circle-arrow-left" style="color: RGB(234,102,118); font-size: 30px;"></i></a>
         {% endif %}
         
         <h3>제목 : {{post.title}}</h3>
@@ -44,12 +47,13 @@
         <hr style="width: 800px; margin-left:auto;margin-right:auto">
             <div id = "comment" style="width: 800px; margin-left:auto;margin-right:auto">
                 {% for comment in comments %}
-                <div>
+                <p style="text-align: right; font-size: 13px; margin-bottom: 0;float: right;">작성 날짜: {{comment.created_at}}</p>
                 {% if 'user' in comment.writer.username %}
-                작성자 : {{comment.writer.last_name}} {{comment.writer.first_name}}<br>
+                <p style="color:#ff7473; margin-bottom: 3px;font-size: 13px;">작성자 : {{comment.writer.last_name}} {{comment.writer.first_name}}</p>
                 {% else %}
-                작성자: {{comment.writer}}<br>
+                <p style="color:#ff7473;margin-bottom: 3px;font-size: 13px;">작성자: {{comment.writer}}</p>
                 {% endif %}   {{comment.content}}
+
                 {% if comment.writer == user%}
                     <div id = "edit_delete_comment" style="text-align: right;">
                         <a href = "{% url 'main:edit_comment' comment.id %}"><button id = "comment_edit_button">댓글 수정하기</button></a>
@@ -58,6 +62,7 @@
                     </div>
                     
                 {% endif %}
+
                 <hr>
                 {% endfor %}
                 
