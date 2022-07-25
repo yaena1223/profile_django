@@ -9,20 +9,14 @@ from django.core.paginator import Paginator
 import json
 # Create your views here.
 def showmain(request):
-    post = Post.objects
-    post_list = Post.objects.all()
-    paginator = Paginator(post_list,8)
-    page = request.GET.get('page')
-    posts = paginator.get_page(page)
-    return render(request,'main/mainpage.html',{'post':post,'posts':posts})
+    return render(request,'main/mainpage.html')
 
 def post(request):
-    post = Post.objects
     post_list = Post.objects.all()
     paginator = Paginator(post_list,8)
     page = request.GET.get('page')
     posts = paginator.get_page(page)
-    return render(request,'main/post.html',{'post':post,'posts':posts})
+    return render(request,'main/post.html',{'posts':posts})
 
 def detail(request, id):
     post = get_object_or_404(Post, pk = id)
@@ -35,7 +29,6 @@ def detail(request, id):
 
 def new(request):
     return render(request, 'main/new.html')
-
 
 
 def create(request):

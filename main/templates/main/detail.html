@@ -133,13 +133,13 @@
                 
                 <div id = "page_number" style="text-align: center;">
                     {% if comments.has_previous %} 
-                    <a href = "?page = {{comments.previous_page_number}}" id = "previous">&lt</a>
+                    <a id = "previous" href = "?page = {{comments.previous_page_number}}" id = "previous">&lt</a>
                     {% endif %} 
                     <span>{{comments.number}}</span>
                     <span>of</span>
                     <span>{{comments.paginator.num_pages}}</span>
                     {% if comments.has_next %} 
-                    <a href = "?page={{comments.next_page_number}}" id = "next">&gt</a>
+                    <a id = "next" href = "?page={{comments.next_page_number}}" id = "next">&gt</a>
                     {% endif %}
                 </div>
             </div>

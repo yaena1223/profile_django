@@ -343,10 +343,14 @@ figure, figcaption{
 
 #page_number a{
     text-decoration: none;
-    color:black;
+    color: white;
 }
 
-#next{
-    width: 30px;
-    height: 30px;
+#next,#previous{
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    background-color:rgb(24, 23, 23);
+    border-radius: 5px;
+    
 }
