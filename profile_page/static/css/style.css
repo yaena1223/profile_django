@@ -46,8 +46,12 @@ h1{
     font-family: 'Black Han Sans', sans-serif;
 }
 
-#title_introduction, #title_projects, #title_contact, #title_posts{
+#title_introduction, #title_projects, #title_contact{
     padding-top: 100px;
+}
+
+#title_posts{
+    padding-top: 80px;
 }
 
 .Projects{
@@ -330,4 +334,19 @@ figure, figcaption{
     justify-content: center;
     margin-left: auto;
     margin-right: auto;
+}
+
+#page_number{
+    font-family: dream;
+
+}
+
+#page_number a{
+    text-decoration: none;
+    color:black;
+}
+
+#next{
+    width: 30px;
+    height: 30px;
 }

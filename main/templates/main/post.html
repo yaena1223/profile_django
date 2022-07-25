@@ -31,9 +31,22 @@
       </a>
       {%endfor%}
     </div>
+    <div id = "page_number" style="position: fixed;bottom:15px;left: 49%;">
+      {% if posts.has_previous %} 
+      <a href = "?page = {{posts.previous_page_number}}" id = "previous">&lt</a>
+      {% endif %} 
+      <span>{{posts.number}}</span>
+      <span>of</span>
+      <span>{{posts.paginator.num_pages}}</span>
+      {% if posts.has_next %} 
+      <a href = "?page={{posts.next_page_number}}" id = "next">&gt</a>
+      {% endif %}
+    </div>
     {% else %}
     <a href = "{% url 'account_login' %}" class = "btn btn-warning">로그인</a>
     <a href = "{% url 'account_signup'%}" class = "btn btn-warning">회원가입</a>
     {% endif %}
-  </div>
-  {% endblock %}
+    
+    
+</div>
+{% endblock %}

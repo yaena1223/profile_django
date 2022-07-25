@@ -4,7 +4,7 @@
 {% block content %} 
 {% include 'shared/_navbar2.html' %}
 
-<div id = "detail" class="container" style="padding-top: 100px;">
+<div id = "detail" class="container" style="padding-top: 70px;">
     
     <div id = "detail_body" style="background-color: #f1ede3; border-radius: 15px; padding: 20px; margin-bottom: 30px;">
         {% if post.writer == user%}
@@ -131,7 +131,19 @@
                 <hr>
                 {% endfor %}
                 
+                <div id = "page_number" style="text-align: center;">
+                    {% if comments.has_previous %} 
+                    <a href = "?page = {{comments.previous_page_number}}" id = "previous">&lt</a>
+                    {% endif %} 
+                    <span>{{comments.number}}</span>
+                    <span>of</span>
+                    <span>{{comments.paginator.num_pages}}</span>
+                    {% if comments.has_next %} 
+                    <a href = "?page={{comments.next_page_number}}" id = "next">&gt</a>
+                    {% endif %}
+                </div>
             </div>
+ 
     </div>
 
 </div>

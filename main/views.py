@@ -4,21 +4,33 @@ from django.utils import timezone
 from django.views.decorators.http import require_POST
 from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
+from django.core.paginator import Paginator 
 
 import json
 # Create your views here.
 def showmain(request):
-    posts = Post.objects.all()
-    return render(request,'main/mainpage.html', {'posts':posts})
+    post = Post.objects
+    post_list = Post.objects.all()
+    paginator = Paginator(post_list,8)
+    page = request.GET.get('page')
+    posts = paginator.get_page(page)
+    return render(request,'main/mainpage.html',{'post':post,'posts':posts})
 
 def post(request):
-    posts = Post.objects.all()
-    return render(request,'main/post.html',{'posts':posts})
+    post = Post.objects
+    post_list = Post.objects.all()
+    paginator = Paginator(post_list,8)
+    page = request.GET.get('page')
+    posts = paginator.get_page(page)
+    return render(request,'main/post.html',{'post':post,'posts':posts})
 
 def detail(request, id):
     post = get_object_or_404(Post, pk = id)
     all_comments = post.comments.all().order_by('-created_at')
-    return render(request, 'main/detail.html', {'post':post, 'comments':all_comments})
+    paginator = Paginator(all_comments,5)
+    page = request.GET.get('page')
+    comments = paginator.get_page(page)
+    return render(request, 'main/detail.html', {'post':post, 'comments':comments})
 
 
 def new(request):
@@ -120,3 +132,4 @@ def dislike_toggle(request, post_id):
         "result" : result
     }
     return HttpResponse(json.dumps(context), content_type = "application/json")
+
