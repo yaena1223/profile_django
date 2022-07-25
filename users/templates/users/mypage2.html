@@ -2,14 +2,13 @@
 {% load static %} 
 {% block content %} 
 {% include 'shared/_navbar2.html' %}
-<br><br><br><br>
 <style>
     .nav-pills .nav-link.active, .nav-pills .show>.nav-link {
         color: #fff;
         background-color:RGB(234,102,118);
     }
 </style>
-<h1 style="margin-left: 200px;">Mypage</h1>
+<h1 style="margin-left: 200px;padding-top: 80px;">Mypage</h1>
     <h4 style="margin-left: 200px;font-family: dream;font-size: 18px;">ID : {{user.username}}</h2>
         <ul class="nav nav-pills" style="margin-left: 200px; font-family: dream;">
             <li class="nav-item">
@@ -35,5 +34,15 @@
         {% endfor %}
     </div>
    
-
+    <div id = "page_number" style="position: fixed;bottom:10px;left: 49%;">
+        {% if like_list.has_previous %} 
+        <a href = "?page = {{like_list.previous_page_number}}" id = "previous">&lt</a>
+        {% endif %} 
+        <span>{{like_list.number}}</span>
+        <span>of</span>
+        <span>{{like_list.paginator.num_pages}}</span>
+        {% if like_list.has_next %} 
+        <span id = "next"><a href = "?page={{like_list.next_page_number}}">&gt</a></span>
+        {% endif %}
+      </div>
 {% endblock %}
