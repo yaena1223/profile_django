@@ -10,14 +10,39 @@
     }
 
 </style>
-<h1 style="margin-left: 200px;padding-top: 80px;">Mypage</h1>
+
+<h1 style="margin-left: 200px;padding-top: 80px;display:inline-block">{{user}}'s Page</h1>
+    
+    <div style="display:inline-block">
+        {% if request.user != user %}
+            {% if request.user.profile in user.profile.followers.all%}
+                <a href="{% url 'users:follow' user.id %}"><button type="button" class="btn follow_btn">언팔로우</button></a>
+            {% else %}
+                <a href="{% url 'users:follow' user.id %}"><button type="button" class="btn follow_btn">팔로우</button></a>
+            {% endif %}
+        {% endif %}  
+
+    </div>
+    
+
     <h4 style="margin-left: 200px;font-family: dream;font-size: 18px;">ID : {{user.username}}</h2>
+        <div class="follow_container" style="margin-left:200px">
+            <h6> 팔로워{{ user.profile.followers.count }}명</h6>
+            {%for follower in user.profile.followers.all %}
+                <a href="{% url 'users:mypage' follower.user.id %}">{{ follower.user.username }}</a>
+            {% endfor %}
+    
+            <h6>팔로잉{{ user.profile.followings.count }}명</h6>
+            {% for following in user.profile.followings.all %}
+                <a href="{%url 'users:mypage' following.user.id%}">{{ following.user.username }}</a>
+            {% endfor %}
+        </div>  
         <ul class="nav nav-pills" style="margin-left: 200px; font-family: dream;">
             <li class="nav-item">
-              <a class="nav-link active" href="{% url 'users:mypage' %}">작성한 글</a>
+              <a class="nav-link active" href="{% url 'users:mypage' user.id %}">작성한 글</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{% url 'users:mypage2' %}" style="color:black">좋아요 한 글</a>
+                <a class="nav-link" href="{% url 'users:mypage2' user.id %}" style="color:black">좋아요 한 글</a>
               </li>
             
         </ul>
@@ -46,5 +71,8 @@
         <span id = "next"><a href = "?page={{posts.next_page_number}}">&gt</a></span>
         {% endif %}
       </div>
+    
+
+
 
 {% endblock %}

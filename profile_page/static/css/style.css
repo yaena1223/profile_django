@@ -264,6 +264,8 @@ figure, figcaption{
 
 .btn:hover{
     background-color: rgb(250, 137, 137);
+    border : 3px solid rgb(250, 137, 137);
+    color : white;
 }
 
 .dropdown-item{
@@ -355,3 +357,19 @@ figure, figcaption{
     border-radius: 5px;
     
 }
+
+.follow_container{
+    font-family: dream;
+}
+
+.follow_btn{
+    font-family: dream;
+    border:3px solid rgb(250, 137, 137);
+    color : white;
+    background-color: rgb(250, 137, 137);
+}
+
+.follow_btn:active{
+    border: 1px solid white;
+}
+
